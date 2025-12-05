@@ -1,0 +1,281 @@
+/* D:\chem_portal_ui\public\style.css (Revisi Tampilan) */
+
+/* --- Variabel Warna dan Font --- */
+:root {
+    --primary-color: #1a73e8; /* Biru Google yang cerah */
+    --primary-dark: #0056b3;
+    --secondary-color: #f8f9fa; /* Abu-abu latar belakang yang sangat terang */
+    --card-background: #ffffff;
+    --text-color: #3c4043; /* Abu-abu teks gelap */
+    --border-color: #dadce0;
+    --shadow-heavy: 0 6px 20px rgba(0, 0, 0, 0.08);
+    --shadow-light: 0 2px 4px rgba(0, 0, 0, 0.06);
+    --success-color: #34a853; /* Hijau untuk justifikasi AI */
+    --font-stack: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* --- Global Reset dan Body --- */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-stack);
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* --- Top Bar / Header --- */
+.topbar {
+    background: var(--card-background);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    padding: 10px 0;
+}
+.topbar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+.beaker {
+    font-size: 30px;
+    margin-right: 12px;
+    color: var(--primary-color);
+}
+.title {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+.subtitle {
+    font-size: 0.75em;
+    color: #9aa0a6;
+    margin-top: 2px;
+}
+
+/* --- Main Layout --- */
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+.layout {
+    display: flex;
+    gap: 30px;
+}
+.card {
+    background: var(--card-background);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-heavy);
+    flex: 1;
+}
+.card h2, .card h4 {
+    color: var(--primary-dark);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-top: 0;
+    font-weight: 600;
+}
+
+/* --- Form Input (Left Card) --- */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 15px;
+    align-items: center;
+    margin-bottom: 25px;
+}
+.form-grid label {
+    font-weight: 500;
+    color: var(--text-color);
+}
+.form-grid input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+.form-grid input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.2);
+    outline: none;
+}
+.unit {
+    font-size: 0.8em;
+    color: #9aa0a6;
+    margin-left: 5px;
+}
+.action {
+    grid-column: 1 / -1; /* Rentangkan tombol di seluruh grid */
+    text-align: right;
+}
+#btn-find {
+    padding: 12px 30px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.1s;
+}
+#btn-find:hover {
+    background-color: var(--primary-dark);
+}
+#btn-find:active {
+    transform: translateY(1px);
+}
+
+/* --- Results (Right Card) --- */
+.result-top {
+    display: flex;
+    gap: 30px;
+    padding-bottom: 15px;
+}
+.result-top .info {
+    flex: 2;
+    padding-right: 15px;
+}
+.result-top .visual {
+    flex: 1;
+    text-align: center;
+    min-width: 250px;
+}
+.row-info {
+    display: flex;
+    margin-bottom: 10px;
+    padding: 5px 0;
+}
+.row-info .label {
+    font-weight: 600;
+    width: 140px;
+    color: #5f6368;
+}
+.row-info .value {
+    flex: 1;
+    word-break: break-word;
+    font-weight: 400;
+}
+.row-info.small {
+    font-size: 0.9em;
+}
+
+/* Molecule Box */
+.mol-box {
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 15px;
+    background: #eaf1fb;
+    box-shadow: var(--shadow-light);
+}
+#mol-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+}
+.mol-actions a {
+    display: inline-block;
+    padding: 8px 15px;
+    background: #6c757d;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+}
+.mol-actions a:hover {
+    background: #5a6268;
+}
+[aria-disabled="true"] {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Separator */
+hr {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 20px 0;
+}
+
+/* Properties & Justification */
+.properties h4, .ai-just h4 {
+    margin-top: 20px;
+}
+#res-props {
+    background: var(--secondary-color);
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    border-radius: 6px;
+    white-space: pre-wrap;
+    font-size: 0.9em;
+    color: #000000;
+    overflow-x: auto;
+}
+.ai-box {
+    padding: 18px;
+    border: 1px solid var(--success-color);
+    background-color: #e6f7ed; /* Hijau terang */
+    border-radius: 6px;
+    line-height: 1.6;
+    color: var(--success-color);
+    font-style: italic;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.85em;
+    color: #9aa0a6;
+    background: var(--card-background);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+    .layout {
+        flex-direction: column;
+    }
+    .card-left, .card-right {
+        max-width: 100%;
+    }
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 600px) {
+    .result-top {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .result-top .visual {
+        min-width: auto;
+    }
+    .row-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .row-info .label {
+        width: 100%;
+        margin-bottom: 2px;
+    }
+}
