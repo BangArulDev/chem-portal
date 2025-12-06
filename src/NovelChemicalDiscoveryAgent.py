@@ -45,7 +45,7 @@ class NovelChemicalDiscoveryAgent:
     def _init_gemini_client(self) -> Optional[genai.Client]:
         """Inisialisasi Gemini Client."""
         api_key = os.getenv("GEMINI_API_KEY")
-        if not api_key: return None
+        if not api_key: raise ValueError("ERROR: GEMINI_API_KEY tidak diberikan")
         try:
             client = genai.Client(api_key=api_key)
             print("INFO: Gemini Client berhasil diinisialisasi.")
