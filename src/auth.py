@@ -116,8 +116,8 @@ async def LoginHandler(request: Request):
   
   uname = uname.strip()
   pw =  pw.strip()
-  if len(uname) < 3:
-    return gen_error(400, "Username length must greater than 3")
+  if len(uname) < 3 or len(uname) > 32:
+    return gen_error(400, "Username length must greater than 3 and less than or equals to 32")
   if len(pw) < 8:
     return gen_error(400, "Password length must greater than 8")
   if not is_username_valid(uname):
@@ -184,10 +184,10 @@ async def RegisterHandler(request: Request):
   name = name.strip()
   uname = uname.strip()
   pw =  pw.strip()
-  if len(name) < 3:
-    return gen_error(400, "Name length must greater than 3")
-  if len(uname) < 3:
-    return gen_error(400, "Username length must greater than 3")
+  if len(name) < 3 or len(name) > 40: 
+    return gen_error(400, "Name length must greater than 3 and less than or equals to 40")
+  if len(uname) < 3 or len(uname) > 32:
+    return gen_error(400, "Username length must greater than 3 and less than or equals to 32")
   if len(pw) < 8:
     return gen_error(400, "Password length must greater than 8")
   if not is_username_valid(uname):
