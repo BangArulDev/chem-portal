@@ -42,18 +42,27 @@ Proyek ini dikerjakan oleh tim yang terdiri dari:
 
 ### 2 Machine Learning Engineers
 
-Ayunda Putri - M251D5X0322`<br>`
+Ayunda Putri - M251D5X0322 `<br>`
 Muhammad Fiqri J.A. - M253D5Y1274
 
 ### 3 Front-End & Back-End Developers
 
-Itsna Akhdan Fadhil - F012D5Y0871`<br>`
-Amrully Arun Hadi - F888D5Y0193`<br>`
+Itsna Akhdan Fadhil - F012D5Y0871 `<br>`
+Amrully Arun Hadi - F888D5Y0193 `<br>`
 Aziz Ridhwan Pratama - F002D5Y0325
 
 ## Menjalankan Proyek
 
 Command di bawah mengasumsikan bahwa Anda sedang menggunakan bash-like terminal. (BUKAN COMMAND PROMPT ATAUPUN POWERSHELL DARI WINDOWS!)
+
+### Menyalin Sumber Daya
+
+Pastikan Git LFS sudah terpasang. Jika belum, bisa kunjungi https://git-lfs.com/ untuk informasi pemasangan lebih lanjut.
+
+```bash
+$ git clone https://github.com/BangArulDev/chem-portal.git
+$ cd chem-portal
+```
 
 ### Frontend
 
