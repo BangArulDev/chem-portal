@@ -27,3 +27,4 @@ results/*
 !results/.gitkeep
 
 data/data.db
+certs/*
