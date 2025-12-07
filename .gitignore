@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv
+venv/
+env/
+
+# Node.js
+node_modules/
+npm-debug.log
+
+# Environment Variables
+.env
+
+# MacOS
+.DS_Store
+
+# IDEs
+.vscode/
+.idea/
+
+# Project Specific
+# Note: We are NOT ignoring .pkl files here because we want to track them with Git LFS
+# src/*.pkl 
+results/*
+!results/.gitkeep
