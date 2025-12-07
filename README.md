@@ -53,6 +53,8 @@ Aziz Ridhwan Pratama - F002D5Y0325
 
 ## Menjalankan Proyek
 
+Command di bawah mengasumsikan bahwa Anda sedang menggunakan bash-like terminal. (BUKAN COMMAND PROMPT ATAUPUN POWERSHELL DARI WINDOWS!)
+
 ### Frontend
 
 ```bash
@@ -66,9 +68,11 @@ Frontend akan berjalan di port 3000 secara default.
 ### Backend
 
 ```bash
-$ python -m pip install --upgrade pip
-$ python -m pip install -Uvr requirements.txt
-$ uvicorn src.app_service:app
+$ python -m venv .venv
+$ source .venv/bin/activate
+(.venv) $ python -m pip install --upgrade pip
+(.venv) $ python -m pip install -Uvr requirements.txt
+(.venv) $ uvicorn src.api_service:app
 ```
 
 Backend akan berjalan di port 8000 secara default.
