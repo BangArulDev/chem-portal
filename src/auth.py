@@ -134,7 +134,12 @@ async def LoginHandler(request: Request):
     return gen_error(404, "User not found")
 
   hasher = PasswordHasher()
-  verified = hasher.verify(user_pass_hash, pw)
+  verified = False
+  try:
+    verified = hasher.verify(user_pass_hash, pw)
+  except:
+    verified = False
+
   if not verified:
     return gen_error(401, "Wrong password")
 
