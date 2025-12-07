@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // --- 3. Fungsi Tampil Hasil ---
-  function displayResults(data) {
+  async function displayResults(data) {
     const compound = data.recommended_compound;
     const props = compound.Properties;
 
@@ -65,12 +65,24 @@ document.addEventListener("DOMContentLoaded", () => {
     resStatus.textContent = "Rekomendasi berhasil!";
 
     // 2. Visualisasi
-    const imagePath2D = compound.Structure_2D_Path
-      ? `${BASE_BACKEND_URL}${compound.Structure_2D_Path}`
-      : DEFAULT_IMG_SRC;
-    const imagePath3D = compound.Structure_3D_Path
-      ? `${BASE_BACKEND_URL}${compound.Structure_3D_Path}`
-      : "#";
+    let imagePath2D = DEFAULT_IMG_SRC;
+    if (compound.Structure_2D_Path) {
+      const url = new URL(BASE_BACKEND_URL);
+      url.pathname = compound.Structure_2D_Path;
+      const resp = await fetch(url, { headers: { Authorization: `Bearer ${localStorage.getItem("chem-token")}` } });
+      const blob = await resp.blob();
+      imagePath2D = URL.createObjectURL(blob);
+      alert(imagePath2D);
+    }
+
+    let imagePath3D = "#";
+    if (compound.Structure_3D_Path) {
+      const url = new URL(BASE_BACKEND_URL);
+      url.pathname = compound.Structure_3D_Path;
+      const resp = await fetch(url, { headers: { Authorization: `Bearer ${localStorage.getItem("chem-token")}` } });
+      const blob = await resp.blob();
+      imagePath3D = URL.createObjectURL(blob);
+    }
 
     molImg.src = imagePath2D;
     molImg.alt = `Struktur 2D ${compound.SMILES}`;
@@ -125,6 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("chem-token")}`,
         },
         body: JSON.stringify(data),
       });
@@ -133,8 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!response.ok) {
         // Tangani error dari FastAPI (misalnya HTTPException)
-        const errorDetail =
-          result.detail || "Terjadi kesalahan tidak diketahui di backend.";
+        const errorDetail = result.detail || result.error || "Terjadi kesalahan tidak diketahui di backend.";
         resetResultsUI(`ERROR: ${response.status} - ${errorDetail}`);
         return;
       }
@@ -142,9 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
       displayResults(result);
     } catch (error) {
       console.error("Fetch error:", error);
-      resetResultsUI(
-        `FATAL ERROR: Gagal terhubung ke API (Pastikan FastAPI berjalan di ${BASE_BACKEND_URL}).`
-      );
+      resetResultsUI(`FATAL ERROR: Gagal terhubung ke API (Pastikan FastAPI berjalan di ${BASE_BACKEND_URL}).`);
     }
   });
 

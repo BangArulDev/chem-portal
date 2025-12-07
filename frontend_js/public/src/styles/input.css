@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.user-avatar {
+  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCb-GzJHUf19pLnoIpuDq8R6-xuohTnrswe_V8ooAASYF88uSCMHTONVGL22ytMaWsC6293R_1i-QpyT_IKE16ACB8cJgnob5TsBI0kjefpKoshqTWdiaueJQoZwmpy9COcJLLUAXaUgLKXpjIfQXO89KZ-zetWqNLPlI1IIpPlSF0awGWWNO9z-UDo7VDklQ2OxLL5Z49IGbJ-MAE5-MC9d8ANsCnur2n94MyK_v0G8ub3APbeuD9rFB5kHlecA3Rz9veF8e3YZO4');
+}
+
+.hero-background {
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.6) 100%
+    ),
+    url('https://lh3.googleusercontent.com/aida-public/AB6AXuD_Ue7_s4CPzcGq5KSVvxP4JBbsQbv3Zqiw-9j1mSX1vqC7jctQRAUbb-LFvtkKR2h3S6IQvTrjxk-oniLbTAbXPEtETeQSvLze9esbXCuikEFXATkasJVIczsCHzHSPQawRKm1eA49Lcl0lO9c98SRjEi75NDZpnK3lFvhKPWUWCNJ29ZDvc6SndqvXvGGoYkYVRcFFxm6AzDIiPoOiSuZ4W3OyKPNNCInVxiBFA7sXqIOaHodkZRs8YIbPWb5nT6onzyWDrQc3EM');
+}

@@ -25,3 +25,6 @@ npm-debug.log
 # src/*.pkl 
 results/*
 !results/.gitkeep
+
+data/data.db
+certs/*

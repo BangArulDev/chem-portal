@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>ChemFinder - Chemical Product Portal</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link href="../../dist/output.css" rel="stylesheet" />
+    <link href="/style.css" rel="stylesheet" />
+  </head>
+  <body class="font-display bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200">
+    <div class="flex flex-col min-h-screen">
+      <header
+        class="bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800"
+      >
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-16">
+            <div class="flex items-center gap-5">
+              <svg class="h-8 w-8 text-primary" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  clip-rule="evenodd"
+                  d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                ></path>
+              </svg>
+              <h1 class="text-2xl font-bold text-slate-900 dark:text-white">ChemFinder</h1>
+            </div>
+            <!-- <nav class="hidden md:flex items-center gap-8"></nav> -->
+            <div class="flex gap-8">
+              <span hidden id="user_name">Nama</span>
+              <button hidden id="logout">Logout</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="max-w-3xl mx-auto">
+          <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl">
+              Accelerate Material Discovery with AI
+            </h1>
+            <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">
+              Define your desired properties, and let our AI agent design novel molecules tailored to your needs.
+            </p>
+          </div>
+        </div>
+
+        <p id="wait">Memeriksa autentikasi...</p>
+
+        <div class="custom-container protected">
+          <section class="layout">
+            <div class="card card-left" aria-label="Input Kriteria Kimia">
+              <h2>Masukkan Kriteria Target</h2>
+
+              <div class="form-grid mt-4">
+                <label for="solubility">Solubility <span class="unit">g/L</span></label>
+                <input id="solubility" type="number" step="0.01" value="0.5" aria-label="Input target Solubility" />
+
+                <label for="viscosity">Viscosity <span class="unit">cp</span></label>
+                <input id="viscosity" type="number" step="0.1" value="100.0" aria-label="Input target Viscosity" />
+
+                <label for="thermal">Thermal Stability Score</label>
+                <input
+                  id="thermal"
+                  type="number"
+                  step="0.01"
+                  value="0.95"
+                  aria-label="Input target Thermal Stability Score"
+                />
+
+                <label for="boiling">Boiling Point <span class="unit">°C</span></label>
+                <input id="boiling" type="number" step="0.1" value="120.0" aria-label="Input target Boiling Point" />
+              </div>
+
+              <div class="action">
+                <button id="btn-find">🔎 Temukan Senyawa</button>
+              </div>
+            </div>
+
+            <div class="card card-right" aria-label="Hasil Rekomendasi Senyawa">
+              <h2>Hasil Rekomendasi Senyawa</h2>
+
+              <div id="results" class="results mt-4">
+                <div class="result-top">
+                  <div class="info">
+                    <div class="row-info">
+                      <div class="label">Nama</div>
+                      <div id="res-name" class="value" aria-live="polite">-</div>
+                    </div>
+                    <div class="row-info">
+                      <div class="label">SMILES</div>
+                      <div id="res-smiles" class="value">-</div>
+                    </div>
+                    <div class="row-info small">
+                      <div class="label">Status</div>
+                      <div id="res-status" class="value">-</div>
+                    </div>
+                  </div>
+
+                  <div class="visual">
+                    <div class="mol-box">
+                      <img
+                        id="mol-img"
+                        src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='160'><rect width='100%' height='100%' fill='%23f6f9fb'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%238a8f96' font-family='sans-serif' font-size='14'>Molecule preview</text></svg>"
+                        alt="Visualisasi Struktur Molekul"
+                      />
+                    </div>
+                    <div class="mol-actions">
+                      <a
+                        id="download-mol"
+                        href="#"
+                        download="recommended_molecule.mol"
+                        aria-disabled="true"
+                        aria-label="Unduh File Molekul 3D (.mol)"
+                        >Unduh File .mol</a
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <hr />
+
+                <div class="properties">
+                  <h4>Properti Prediksi</h4>
+                  <pre id="res-props" class="mt-4">Properti akan terdaftar di sini setelah pencarian.</pre>
+                </div>
+
+                <div class="ai-just">
+                  <h4>Justifikasi</h4>
+                  <div id="res-just" class="ai-box mt-4">Hasil justifikasi akan muncul di sini.</div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <footer class="bg-background-light dark:bg-background-dark border-t border-slate-200 dark:border-slate-800">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-sm text-slate-500 dark:text-slate-400">
+          <p>© 2025 ChemFinder. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="/src/scripts/components/auth-checker.js"></script>
+    <script src="/src/scripts/main-menu.js"></script>
+  </body>
+</html>

@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
 // Endpoint konfigurasi untuk frontend
 app.get("/config", (req, res) => {
   res.json({
-    backendUrl: process.env.BACKEND_URL || "http://127.0.0.1:8000",
+    backendUrl: process.env.BACKEND_URL || "https://api-novelchem.ajos.my.id/profile",
   });
 });
 
