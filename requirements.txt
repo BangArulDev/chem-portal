@@ -7,3 +7,6 @@ fastapi
 uvicorn[standard]
 joblib
 numpy
+PyJWT
+aiosqlite
+argon2-cffi

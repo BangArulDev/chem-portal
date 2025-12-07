@@ -3,14 +3,14 @@ from fastapi import FastAPI, HTTPException, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
-from typing import Optional, Annotated
+from typing import Optional
 
 import aiosqlite
 import os
 
 # 🟢 Impor RELATIF untuk Agen (menggunakan nama file yang benar)
 from .NovelChemicalDiscoveryAgent import NovelChemicalDiscoveryAgent 
-from .auth import AuthMiddleware
+from .auth import AuthMiddleware, LoginHandler, RegisterHandler
 
 # ==============================================================================
 # 1. ⚙️ KONFIGURASI FASTAPI
@@ -44,9 +44,9 @@ print(origins)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
-    allow_credentials=True,
+    allow_credentials=False,
     allow_methods=["GET", "POST", "OPTIONS"],
-    # allow_headers=["*"],
+    allow_headers=["Authorization"],
 )
 
 # Inisialisasi Agen (Memuat model dan Gemini Client saat startup)
@@ -137,14 +137,8 @@ async def get_profile(request: Request):
 
 @app.post("/login")
 async def login(req: Request):
-    resp = Response(status_code=204)
-    resp.set_cookie("chem-token", "hehe", httponly=True, expires=24*60*60, secure=True)
+    return await LoginHandler(req)
 
-    return resp
-
-@app.post("/logout")
-async def logout():
-    resp = Response(status_code=204)
-    resp.delete_cookie("chem-token")
-
-    return resp
+@app.post("/signup")
+async def singup(req: Request):
+    return await RegisterHandler(req)
