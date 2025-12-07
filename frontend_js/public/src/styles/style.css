@@ -1,0 +1,692 @@
+/* Custom CSS Properties */
+:root {
+  --primary: #13a4ec;
+  --background-light: #f6f7f8;
+  --background-dark: #101c22;
+  --text-light: #101c22;
+  --text-dark: #f6f7f8;
+  --card-light: #ffffff;
+  --card-dark: #1a2830;
+  --muted-light: #6b7280;
+  --muted-dark: #9ca3af;
+}
+
+/* General Body Styles */
+body {
+  background-color: var(--background-dark);
+  color: var(--text-dark);
+  font-family: "Inter", sans-serif;
+  margin: 0;
+}
+
+.dark body {
+  background-color: var(--background-dark);
+  color: var(--text-dark);
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid var(--background-light);
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.dark .app-header {
+  border-bottom-color: var(--card-dark);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-svg {
+  width: 2rem;
+  height: 2rem;
+  color: var(--primary);
+}
+
+.logo-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-btn {
+  padding: 0.9rem;
+  border-radius: 9999px;
+  background-color: var(--background-dark);
+  border: none;
+  cursor: pointer;
+}
+
+.header-btn:hover {
+  background-color: rgba(19, 164, 236, 0.1);
+}
+
+.dark .header-btn:hover {
+  background-color: rgba(19, 164, 236, 0.2);
+}
+
+.profile-picture {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 9999px;
+}
+
+/* Main Content */
+main {
+  flex-grow: 1;
+  padding: 1rem;
+}
+
+.content-wrapper {
+  max-width: 896px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* User Profile Section */
+.user-profile-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-profile-picture {
+  width: 6rem;
+  height: 6rem;
+  background-image: url('https://api.dicebear.com/9.x/fun-emoji/svg');
+}
+
+.user-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.user-phone {
+  color: var(--muted-dark);
+}
+
+.dark .user-phone {
+  color: var(--muted-dark);
+}
+
+/* Card Styles */
+.card {
+  background-color: var(--card-dark);
+  border-radius: 20px;
+  padding: 1.8rem;
+  border: 2px solid #c3c6ce;
+  transition: 0.5s ease-out;  
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.card:hover {
+ border-color: #008bf8;
+ box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+}
+
+.dark .card {
+  background-color: var(--card-dark);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* Balance Card */
+.balance-card-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.balance-amount {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.balance-expiry {
+  color: var(--muted-dark);
+}
+.dark .balance-expiry {
+  color: var(--muted-dark);
+}
+
+/* Active Package Card */
+.package-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.progress-container {
+  width: 100%;
+  background-color: rgba(19, 164, 236, 0.1);
+  border-radius: 9999px;
+  height: 0.625rem;
+  margin-top: 0.75rem;
+}
+
+.progress-bar {
+  background-color: var(--primary);
+  height: 0.625rem;
+  border-radius: 9999px;
+  width: 75%;
+}
+
+.usage-details {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--muted-dark);
+}
+
+.dark .usage-details {
+  color: var(--muted-dark);
+}
+
+.usage-details .value {
+  font-weight: 700;
+  color: var(--text-dark);
+}
+.dark .usage-details .value {
+  color: var(--text-dark);
+}
+
+/* Section Header */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.see-all-link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.see-all-link:hover {
+  text-decoration: underline;
+}
+
+/* Recommended Packages */
+.recommendations-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .recommendations-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .recommendations-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.package-item {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background-color: var(--card-dark);
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+.dark .package-item {
+  background-color: var(--card-dark);
+}
+.package-item:hover {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.package-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.package-item-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+.package-item-details {
+  color: var(--muted-dark);
+}
+.dark .package-item-details {
+  color: var(--muted-dark);
+}
+.package-item-icon-wrapper {
+  background-color: rgba(19, 164, 236, 0.1);
+  padding: 0.5rem;
+  border-radius: 9999px;
+}
+.package-item-icon {
+  color: var(--primary);
+}
+.package-item-footer {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.package-item-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+.buy-button-small {
+  font-size: 0.875rem;
+}
+
+/* Purchase List */
+.purchase-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.purchase-item {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: var(--background-dark);
+  border-radius: 0.5rem;
+}
+.dark .purchase-item {
+  background-color: var(--background-dark);
+}
+
+.purchase-item-main {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.purchase-item-icon {
+  padding: 0.75rem;
+  border-radius: 9999px;
+  background-color: rgba(19, 164, 236, 0.1);
+}
+
+.purchase-item-title {
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+.purchase-item-details {
+  color: var(--muted-dark);
+}
+.dark .purchase-item-details {
+  color: var(--muted-dark);
+}
+
+.purchase-item-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.purchase-item-price {
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+@media (min-width: 640px) {
+  .purchase-item {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .purchase-item-actions {
+    margin-top: 0;
+    gap: 1rem;
+  }
+}
+
+/* Buttons */
+.button {
+  font-weight: 700;
+  color: white;
+  background-color: var(--primary);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  background-color: #1093d4; /* Darker primary */
+}
+
+.button-small {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+/* Material Symbols */
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  vertical-align: middle; /* Better alignment */
+}
+
+/* Purchase History Section */
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: var(--card-dark);
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.dark .history-item {
+  background-color: var(--card-dark);
+}
+
+.history-item-details {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.history-item-icon {
+  padding: 0.75rem;
+  border-radius: 9999px;
+  background-color: rgba(19, 164, 236, 0.1);
+}
+
+.history-item-name {
+  font-weight: 700;
+}
+
+.history-item-date {
+  font-size: 0.875rem;
+  color: var(--muted-dark);
+}
+
+.dark .history-item-date {
+  color: var(--muted-dark);
+}
+
+.history-item-price {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* --- Variabel Warna & Tema --- */
+:root {
+  --primary-color: #2563eb;       /* Biru Royal */
+  --primary-hover: #1d4ed8;
+  --bg-color: #f8fafc;            /* Background halaman */
+  --card-bg: #ffffff;             /* Background kartu */
+  --text-main: #1e293b;           /* Teks utama */
+  --text-muted: #64748b;          /* Teks label */
+  --border-color: #e2e8f0;
+  --success-color: #10b981;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+  --radius: 12px;
+}
+
+/* --- Container Utama --- */
+.chem-container {
+  background-color: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 1px solid var(--border-color);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--text-main);
+}
+
+/* --- Header --- */
+.chem-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--bg-color);
+}
+
+.chem-header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.badge-status {
+  font-size: 0.75rem;
+  background: var(--bg-color);
+  color: var(--text-muted);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* --- Layout Grid Utama (Atas) --- */
+.main-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 240px; /* Kiri fleksibel, Kanan fix untuk gambar */
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Responsif: Tumpuk ke bawah jika layar kecil */
+@media (max-width: 640px) {
+  .main-info-grid {
+    grid-template-columns: 1fr;
+  }
+  .visual-col {
+    order: -1; /* Gambar pindah ke atas di HP */
+    margin: 0 auto;
+  }
+}
+
+/* --- Kolom Detail --- */
+.info-group {
+  margin-bottom: 1.25rem;
+}
+
+.info-group label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.value-text {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.value-code {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  background: var(--bg-color);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  word-break: break-all; /* Agar teks panjang SMILES turun ke bawah */
+  color: var(--primary-color);
+  border: 1px solid var(--border-color);
+}
+
+/* --- Kolom Visualisasi --- */
+.visual-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.mol-box {
+  background: var(--bg-color);
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mol-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.btn-download {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-download:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+.btn-download.disabled {
+  background-color: var(--text-muted);
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+/* --- Divider --- */
+.divider {
+  height: 1px;
+  background: var(--border-color);
+  margin: 2rem 0;
+}
+
+/* --- Properti Prediksi --- */
+.properties-section h4, 
+.justification-section h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-main);
+}
+
+.props-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+/* Styling untuk item properti (ditambahkan nanti via JS) */
+.prop-card {
+  background: var(--bg-color);
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+.prop-card span.label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+.prop-card span.value {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 1rem;
+  border: 1px dashed var(--border-color);
+  border-radius: 8px;
+}
+
+/* --- AI Justifikasi --- */
+.ai-box {
+  background-color: #f0f9ff; /* Biru sangat muda */
+  border-left: 4px solid var(--primary-color);
+  padding: 1.25rem;
+  border-radius: 0 8px 8px 0;
+  color: #334155;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
